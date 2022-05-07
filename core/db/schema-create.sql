@@ -144,6 +144,13 @@
         COUNTRY_CODE CHARACTER VARYING(1024) not null,
         primary key (ID)
     );
+    
+    create table STATE_PROVINCE (
+        ID BIGINT not null,
+        STATE_PROVINCE_NAME CHARACTER VARYING(1024) not null,
+        STATE_PROVINCE_CODE CHARACTER VARYING(1024) not null,
+        primary key (ID)
+    );
 
     create table COURSE (
         ID BIGINT not null,
@@ -1233,6 +1240,9 @@
         ENCRYPTED_CITY_NAME BYTEA not null unique,
         CITY_NAME_IV BYTEA not null unique,
         CITY_NAME_HASH BYTEA,
+        ENCRYPTED_STATE_PROVINCE_CODE BYTEA not null unique,
+        STATE_PROVINCE_CODE_IV BYTEA not null unique,
+        STATE_PROVINCE_CODE_HASH BYTEA,
         ENCRYPTED_STREET_NAME BYTEA not null unique,
         STREET_NAME_IV BYTEA not null unique,
         STREET_NAME_HASH BYTEA,
@@ -1578,6 +1588,7 @@
         ID BIGINT not null,
         COUNTRY_NAME CHARACTER VARYING(1024) not null,
         ZIP_CODE CHARACTER VARYING(1024) not null,
+        STATE_PROVINCE_CODE CHARACTER VARYING(1024) not null,
         CITY_NAME CHARACTER VARYING(1024) not null,
         STREET_NAME CHARACTER VARYING(1024) not null,
         HOUSE_NUMBER CHARACTER VARYING(1024) not null,
